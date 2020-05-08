@@ -2,7 +2,7 @@ function drive_curve
 % Drives the neato according to the given parametric curve equation
 
 % initialize ros comms
-rosshutdown(); rosinit('localhost',11311, 'NodeHost','host.docker.internal')
+% rosshutdown(); rosinit('localhost',11311, 'NodeHost','host.docker.internal')
 
 % define u as our parameter to vary with respect to time
 u = [];

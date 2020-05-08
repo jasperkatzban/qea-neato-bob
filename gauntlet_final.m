@@ -2,6 +2,9 @@
 % a single executable file which takes no arguments and outputs plots and
 % control to a connected neato simulation.
 
+% initialize a connection to the simulation environment
+rosshutdown(); rosinit('localhost',11311, 'NodeHost','host.docker.internal')
+
 % clear and load
 clear; clf;
 load('BoB clean scan.mat');
@@ -29,5 +32,8 @@ s0 = .3;
 generate_ascent(px_i,py_i,delta, s0);
 legend('Lidar Points','Found lines');
 
-% drive along that path
+% drive along that path and collect data
 drive_curve;
+
+% plot that data on top of the existing path
+plotData('bobrun.mat');
